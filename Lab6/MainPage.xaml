@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SwipeGesture" 
+             x:Class="Lab6.MainPage">
+
+    <Grid Margin="15,15,15,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" />
+            <RowDefinition Height="70" />
+            <RowDefinition Height="350" />
+            <RowDefinition Height="75" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Label Text="Fruit &amp; Vegetable Survey"
+            Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
+            TextColor="Black" Font="Bold,30" 
+             BackgroundColor="WhiteSmoke"/>
+        <Label Text="question cell"
+            x:Name="SurveyQuestion"
+            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" ></Label>
+        <local:SwipeContainer Swipe="OnSwiped" 
+            HorizontalOptions="FillAndExpand"  
+            VerticalOptions="FillAndExpand" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="1"
+            IsEnabled="true"  IsVisible="true">
+            <Image x:Name="SurveyImage" Source="deer.jpg" Grid.Row="2" Grid.Column="0" 
+                   Grid.ColumnSpan="2" HeightRequest="300" WidthRequest="300" />
+        </local:SwipeContainer>
+        <Label Text="question cell"
+            x:Name="SurveyResult"
+            Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"
+            IsVisible="false"  
+            Font="Normal,20" />
+        <Button Text="True"
+            x:Name="SurveyOptionA" 
+            Clicked="OnButtonClicked_OptionA"
+            Grid.Row="3" Grid.Column="0"
+            BorderColor="Green"
+            Style="{StaticResource optionButtonStyle}"  />
+        <Button Text="False"
+            x:Name="SurveyOptionB"
+            Clicked="OnButtonClicked_OptionB"
+            Grid.Row="3" Grid.Column="1"
+            BorderColor="Red"
+            Style="{StaticResource optionButtonStyle}"  />
+        <Button Text="Restart Survey"
+            x:Name="SurveyRestart"
+            Clicked="OnButtonClicked_Restart"
+            Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+            BorderColor="White"
+            BorderWidth="5"
+            CornerRadius="10"
+            WidthRequest="150"
+            HeightRequest="50"
+            IsEnabled="false"
+            IsVisible="false"/>
+
+    </Grid>
+
+
+</ContentPage>
